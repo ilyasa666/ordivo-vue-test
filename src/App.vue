@@ -1,26 +1,25 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <StarshipList @showDetail="showStarshipDetail" />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import StarshipList from './components/StarshipList.vue';
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    StarshipList,
+  },
+  data() {
+    return {
+      selectedStarship: null
+    };
+  },
+  methods: {
+    showStarshipDetail(starship) {
+      this.selectedStarship = starship;
+    }
   }
-}
+};
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
